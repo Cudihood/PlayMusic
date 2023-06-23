@@ -70,8 +70,7 @@ final class TrackViewController: UIViewController {
 
 extension TrackViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        isPlaying = false
-        updatePlayButtonImage()
+        nextTrack()
     }
 }
 

@@ -9,7 +9,6 @@ import Foundation
 import AVFoundation
 
 class ModelMeneger {
-    
     func loadMusicData() -> [Track] {
         var tracks: [Track] = []
         guard let musicFolderURL = Bundle.main.url(forResource: "Music", withExtension: nil) else {
