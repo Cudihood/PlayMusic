@@ -11,8 +11,8 @@ struct MusicTableViewCellModel {
     let track: String
     let duration: String
     
-    init(with model: MusicTableViewModel) {
-        self.track = model.track
+    init(with model: MusicModel) {
+        self.track = model.track + " - " + model.artist
         self.duration = model.duration
     }
 }

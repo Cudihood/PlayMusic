@@ -12,8 +12,7 @@
 		8FA5B4E32A44856E00CAF7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5B4E22A44856E00CAF7F6 /* Assets.xcassets */; };
 		8FA5B4E62A44856E00CAF7F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5B4E42A44856E00CAF7F6 /* LaunchScreen.storyboard */; };
 		8FA5B4EE2A4492AB00CAF7F6 /* MusicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5B4ED2A4492AB00CAF7F6 /* MusicTableViewController.swift */; };
-		8FA5B4F02A4492CF00CAF7F6 /* MusicTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5B4EF2A4492CF00CAF7F6 /* MusicTableViewModel.swift */; };
-		8FA5B4F22A44931000CAF7F6 /* TrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5B4F12A44931000CAF7F6 /* TrackViewModel.swift */; };
+		8FA5B4F02A4492CF00CAF7F6 /* MusicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5B4EF2A4492CF00CAF7F6 /* MusicModel.swift */; };
 		8FA5B4F42A44945300CAF7F6 /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5B4F32A44945300CAF7F6 /* MusicTableViewCell.swift */; };
 		8FA5B4F72A44947500CAF7F6 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8FA5B4F62A44947500CAF7F6 /* SnapKit */; };
 		8FA5B4F92A4495AC00CAF7F6 /* MusicTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5B4F82A4495AC00CAF7F6 /* MusicTableViewCellModel.swift */; };
@@ -21,6 +20,7 @@
 		8FA5BC4B2A44B30F00CAF7F6 /* Music in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5BC4A2A44B30F00CAF7F6 /* Music */; };
 		8FA5BC542A44BFE500CAF7F6 /* TrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA5BC522A44BFE500CAF7F6 /* TrackViewController.swift */; };
 		8FA5BC552A44BFE500CAF7F6 /* TrackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FA5BC532A44BFE500CAF7F6 /* TrackViewController.xib */; };
+		8FE264462A45CB7E001BEA6E /* ModelMeneger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE264452A45CB7E001BEA6E /* ModelMeneger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,14 +31,14 @@
 		8FA5B4E52A44856E00CAF7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FA5B4E72A44856E00CAF7F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FA5B4ED2A4492AB00CAF7F6 /* MusicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewController.swift; sourceTree = "<group>"; };
-		8FA5B4EF2A4492CF00CAF7F6 /* MusicTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewModel.swift; sourceTree = "<group>"; };
-		8FA5B4F12A44931000CAF7F6 /* TrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewModel.swift; sourceTree = "<group>"; };
+		8FA5B4EF2A4492CF00CAF7F6 /* MusicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicModel.swift; sourceTree = "<group>"; };
 		8FA5B4F32A44945300CAF7F6 /* MusicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		8FA5B4F82A4495AC00CAF7F6 /* MusicTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTableViewCellModel.swift; sourceTree = "<group>"; };
 		8FA5B4FA2A4495F100CAF7F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8FA5BC4A2A44B30F00CAF7F6 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Music; sourceTree = "<group>"; };
 		8FA5BC522A44BFE500CAF7F6 /* TrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackViewController.swift; sourceTree = "<group>"; };
 		8FA5BC532A44BFE500CAF7F6 /* TrackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackViewController.xib; sourceTree = "<group>"; };
+		8FE264452A45CB7E001BEA6E /* ModelMeneger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMeneger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +72,8 @@
 		8FA5B4D82A44856C00CAF7F6 /* PlayMusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				8FE264472A45CF62001BEA6E /* Models */,
+				8FE264442A45CB1F001BEA6E /* Service */,
 				8FA5B5032A44980900CAF7F6 /* Helpers */,
 				8FA5B4FC2A44970300CAF7F6 /* Application */,
 				8FA5B4FD2A44971E00CAF7F6 /* Modules */,
@@ -103,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				8FA5B4ED2A4492AB00CAF7F6 /* MusicTableViewController.swift */,
-				8FA5B4EF2A4492CF00CAF7F6 /* MusicTableViewModel.swift */,
 				8FA5B5002A44979900CAF7F6 /* View */,
 			);
 			path = MusicTable;
@@ -113,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				8FA5BC522A44BFE500CAF7F6 /* TrackViewController.swift */,
-				8FA5B4F12A44931000CAF7F6 /* TrackViewModel.swift */,
 				8FA5B5012A4497BC00CAF7F6 /* View */,
 			);
 			path = Track;
@@ -152,6 +152,22 @@
 				8FA5B4FA2A4495F100CAF7F6 /* Constants.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8FE264442A45CB1F001BEA6E /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				8FE264452A45CB7E001BEA6E /* ModelMeneger.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		8FE264472A45CF62001BEA6E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8FA5B4EF2A4492CF00CAF7F6 /* MusicModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,13 +248,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FA5B4F22A44931000CAF7F6 /* TrackViewModel.swift in Sources */,
-				8FA5B4F02A4492CF00CAF7F6 /* MusicTableViewModel.swift in Sources */,
+				8FA5B4F02A4492CF00CAF7F6 /* MusicModel.swift in Sources */,
 				8FA5B4EE2A4492AB00CAF7F6 /* MusicTableViewController.swift in Sources */,
 				8FA5B4F42A44945300CAF7F6 /* MusicTableViewCell.swift in Sources */,
 				8FA5B4F92A4495AC00CAF7F6 /* MusicTableViewCellModel.swift in Sources */,
 				8FA5B4DA2A44856C00CAF7F6 /* AppDelegate.swift in Sources */,
 				8FA5B4DC2A44856C00CAF7F6 /* SceneDelegate.swift in Sources */,
+				8FE264462A45CB7E001BEA6E /* ModelMeneger.swift in Sources */,
 				8FA5BC542A44BFE500CAF7F6 /* TrackViewController.swift in Sources */,
 				8FA5B4FB2A4495F100CAF7F6 /* Constants.swift in Sources */,
 			);

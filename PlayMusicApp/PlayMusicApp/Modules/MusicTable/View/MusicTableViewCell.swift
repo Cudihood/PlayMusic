@@ -48,8 +48,6 @@ final class MusicTableViewCell: UITableViewCell {
     }
 }
 
-// MARK: - Private extension
-
 private extension MusicTableViewCell {
     func setupViews() {
         self.backgroundColor = Constants.Color.background
@@ -58,7 +56,7 @@ private extension MusicTableViewCell {
         
         trackLabel.snp.makeConstraints { make in
             make.top.leading.bottom.equalToSuperview().inset(Constants.Spacing.standart)
-            make.trailing.equalToSuperview().inset(50)
+            make.trailing.equalToSuperview().inset(Constants.Spacing.big)
         }
         
         durationLabel.snp.makeConstraints { make in

@@ -19,24 +19,14 @@ enum Constants {
     enum Spacing {
         static let standart = 16
         static let little = 6
-    }
-    
-    enum Size {
-        static let little = 60
-        static let big = 200
-        static let cornerRadius: CGFloat = 20
+        static let big = 50
     }
     
     enum Font {
-        static let title1 = UIFont.preferredFont(forTextStyle: .title1)
-        static let title2 = UIFont.preferredFont(forTextStyle: .title2)
-        static let title3 = UIFont.preferredFont(forTextStyle: .title3)
         static let body = UIFont.preferredFont(forTextStyle: .body)
     }
     
     enum Color {
-        static let blue = UIColor.systemBlue
         static let background = UIColor.systemBackground
-        static let red = UIColor.systemRed
     }
 }

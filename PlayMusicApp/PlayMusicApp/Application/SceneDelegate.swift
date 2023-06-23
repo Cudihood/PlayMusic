@@ -16,9 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = createNavBarController()
         window?.makeKeyAndVisible()
     }
-    
-    private func createNavBarController() -> UINavigationController {
-        let filmCollectionView = MusicTableViewController()
+}
+
+private extension SceneDelegate {
+    func createNavBarController() -> UINavigationController {
+        let modelMeneger = ModelMeneger()
+        let tracks = modelMeneger.loadMusicData()
+        let filmCollectionView = MusicTableViewController(tracks: tracks)
         let navBar = UINavigationController(rootViewController: filmCollectionView)
         return navBar
     }

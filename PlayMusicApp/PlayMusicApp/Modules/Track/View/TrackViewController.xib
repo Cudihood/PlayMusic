@@ -11,12 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrackViewController" customModule="PlayMusicApp" customModuleProvider="target">
             <connections>
-                <outlet property="artistLable" destination="kzF-dU-Br2" id="zRN-Ma-xfT"/>
-                <outlet property="currentTimeLable" destination="cKc-J2-h28" id="6H9-Gs-CF6"/>
-                <outlet property="durationLable" destination="lal-Tp-UTk" id="38Q-1G-9Be"/>
+                <outlet property="artistLabel" destination="kzF-dU-Br2" id="XYh-h6-xjn"/>
+                <outlet property="currentTimeLabel" destination="cKc-J2-h28" id="gQU-gN-AIq"/>
+                <outlet property="durationLabel" destination="lal-Tp-UTk" id="5EH-1A-VNW"/>
                 <outlet property="playButton" destination="CLv-2Q-Qta" id="YvG-DB-fvA"/>
                 <outlet property="progressView" destination="P8z-AK-xAG" id="S1P-VI-qav"/>
-                <outlet property="trackLable" destination="9yP-LI-GV1" id="xnq-8k-XLB"/>
+                <outlet property="trackLabel" destination="9yP-LI-GV1" id="C8e-rX-68d"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,7 +26,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Oy-OA-Jzo">
-                    <rect key="frame" x="40" y="124.66666666666663" width="313" height="295"/>
+                    <rect key="frame" x="40" y="65.666666666666657" width="313" height="295"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="300" id="A0M-Zs-HQK"/>
@@ -34,22 +34,22 @@
                     <imageReference key="image" image="music.note" catalog="system" symbolScale="small"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Track Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yP-LI-GV1">
-                    <rect key="frame" x="16" y="472" width="361" height="24"/>
+                    <rect key="frame" x="16" y="413" width="361" height="24"/>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzF-dU-Br2">
-                    <rect key="frame" x="16" y="511.99999999999994" width="361" height="20.333333333333314"/>
+                    <rect key="frame" x="16" y="453" width="361" height="20.333333333333314"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="P8z-AK-xAG">
-                    <rect key="frame" x="16" y="629.33333333333337" width="361" height="4"/>
+                    <rect key="frame" x="16" y="570.33333333333337" width="361" height="4"/>
                 </progressView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmq-nr-Gbo">
-                    <rect key="frame" x="248.66666666666663" y="693.33333333333337" width="46" height="35"/>
+                    <rect key="frame" x="248.66666666666663" y="634.33333333333337" width="46" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="forward.end" catalog="system"/>
                     <connections>
@@ -57,19 +57,19 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lal-Tp-UTk">
-                    <rect key="frame" x="331" y="600.33333333333337" width="46" height="21"/>
+                    <rect key="frame" x="331" y="541.33333333333337" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cKc-J2-h28">
-                    <rect key="frame" x="16" y="600.33333333333337" width="46" height="21"/>
+                    <rect key="frame" x="16" y="541.33333333333337" width="46" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ens-Kt-gxk">
-                    <rect key="frame" x="98.666666666666671" y="692.33333333333337" width="46.000000000000014" height="35"/>
+                    <rect key="frame" x="98.666666666666671" y="633.33333333333337" width="46.000000000000014" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="backward.end" catalog="system"/>
                     <connections>
@@ -77,7 +77,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CLv-2Q-Qta">
-                    <rect key="frame" x="174.66666666666666" y="693.33333333333337" width="44" height="35"/>
+                    <rect key="frame" x="174.66666666666666" y="634.33333333333337" width="44" height="35"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" image="play" catalog="system"/>
                     <connections>

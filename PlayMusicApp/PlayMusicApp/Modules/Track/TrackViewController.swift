@@ -8,22 +8,27 @@
 import UIKit
 import AVFoundation
 
-class TrackViewController: UIViewController {
-    var audioPlayer: AVAudioPlayer?
-    var currentTime: TimeInterval = 0
-    var totalDuration: TimeInterval = 0
+final class TrackViewController: UIViewController {
+    var selectedTrackIndex: Int = 0
     
-    @IBOutlet weak var trackLable: UILabel!
-    @IBOutlet weak var artistLable: UILabel!
-    @IBOutlet weak var currentTimeLable: UILabel!
-    @IBOutlet weak var durationLable: UILabel!
+    @IBOutlet weak var trackLabel: UILabel!
+    @IBOutlet weak var artistLabel: UILabel!
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    @IBOutlet weak var durationLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     @IBOutlet weak var playButton: UIButton!
     
-    private let model: TrackViewModel
+    private var audioPlayer: AVAudioPlayer?
+    private var currentTime: TimeInterval = 0
+    private var totalDuration: TimeInterval = 0
+    private var currentIndex: Int = 0
+    private var isPlaying: Bool
     
-    init(model: TrackViewModel) {
-        self.model = model
+    private let tracks: [Track]
+    
+    init(tracks: [Track]) {
+        self.tracks = tracks
+        self.isPlaying = ((audioPlayer?.isPlaying) != nil)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -36,55 +41,67 @@ class TrackViewController: UIViewController {
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        updateView()
+    }
+    
     @IBAction func playButtonAction(_ sender: Any) {
         if let audioPlayer = audioPlayer {
             if audioPlayer.isPlaying {
                 audioPlayer.pause()
-                
+                isPlaying = false
             } else {
                 audioPlayer.play()
-                playButton.setImage(UIImage(systemName: "pause"), for: .normal)
+                isPlaying = true
             }
+            updatePlayButtonImage()
         }
     }
     
     @IBAction func nextButtonAction(_ sender: Any) {
+        nextTrack()
     }
     
     @IBAction func previousButtonAction(_ sender: Any) {
+        previousTrack()
     }
 }
 
 extension TrackViewController: AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        playButton.setImage(UIImage(systemName: "play"), for: .normal)
+        isPlaying = false
+        updatePlayButtonImage()
     }
 }
 
 private extension TrackViewController {
     func configure() {
         setDateUI()
-        playTrack()
         
-        // Установка общей продолжительности трека
+        if audioPlayer == nil {
+            playTrack(index: selectedTrackIndex)
+        }
+        
         totalDuration = audioPlayer?.duration ?? 0
-        
-        // Запуск таймера для обновления времени трека
         Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateTrackTime), userInfo: nil, repeats: true)
 
     }
     
     func setDateUI() {
-        trackLable.text = model.trackName
-        artistLable.text = model.artistName
-        durationLable.text = model.duration
+        trackLabel.text = tracks[selectedTrackIndex].track
+        artistLabel.text = tracks[selectedTrackIndex].artist
+        durationLabel.text = tracks[selectedTrackIndex].duration
     }
     
     @objc func updateTrackTime() {
-        currentTime = audioPlayer?.currentTime ?? 0
-        currentTimeLable.text = formatTime(currentTime)
+        guard let audioPlayer = audioPlayer else {
+            return
+        }
+
+        currentTime = audioPlayer.currentTime
+        currentTimeLabel.text = formatTime(currentTime)
         
-        // Обновление прогресса трека
         let progress = Float(currentTime / totalDuration)
         progressView.setProgress(progress, animated: true)
     }
@@ -95,15 +112,61 @@ private extension TrackViewController {
         return String(format: "%02d:%02d", minutes, seconds)
     }
     
-    func playTrack() {
+    func playTrack(index: Int) {
         do {
-            audioPlayer = try AVAudioPlayer(contentsOf: model.fileURL)
+            currentIndex = index
+            audioPlayer = try AVAudioPlayer(contentsOf: tracks[index].fileURL)
             audioPlayer?.delegate = self
             audioPlayer?.prepareToPlay()
-//            audioPlayer?.play()
+            audioPlayer?.play()
+            isPlaying = true
         } catch {
             print("Ошибка при воспроизведении трека: \(error.localizedDescription)")
         }
+    }
+    
+    func updatePlayButtonImage() {
+        let imageName = isPlaying ? "pause" : "play"
+        playButton.setImage(UIImage(systemName: imageName), for: .normal)
+    }
+    
+    func updateTrackProgress() {
+        guard let audioPlayer = audioPlayer else {
+            return
+        }
+        
+        currentTime = audioPlayer.currentTime
+        self.currentTimeLabel.text = formatTime(currentTime)
+        
+        let progress = Float(currentTime / totalDuration)
+        progressView.setProgress(progress, animated: false)
+    }
+    
+    func updateView() {
+        if currentIndex != selectedTrackIndex {
+            playTrack(index: selectedTrackIndex)
+            configure()
+        }
+        updatePlayButtonImage()
+        updateTrackProgress()
+    }
+    
+    func nextTrack() {
+        if currentIndex == (tracks.count - 1) {
+            selectedTrackIndex = 0
+        } else {
+            selectedTrackIndex += 1
+        }
+        updateView()
+    }
+    
+    func previousTrack() {
+        if currentIndex == 0 {
+            selectedTrackIndex = tracks.count - 1
+        } else {
+            selectedTrackIndex -= 1
+        }
+        updateView()
     }
 }
 
